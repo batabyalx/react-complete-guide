@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styles from "./Cockpit.css";
 
 const cockpit = (props) => {
+  useEffect(() => {
+    console.log("[Cockpit.js] useEffect");
+    //Http request can be done here.
+    setTimeout(() => {
+      alert('Saved data to cloud');
+    }, 1000);
+    return () => {
+      console.log("[Cockpit.js] cleanup in use effect")
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("[Cockpit.js] second useEffect");
+    return () => {
+      console.log("[Cockpit.js] second cleanup in use effect")
+    };
+  });
+
   const classes = [];
   let btnClass = "";
 
